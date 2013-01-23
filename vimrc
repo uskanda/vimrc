@@ -15,6 +15,7 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'surround.vim'
+NeoBundle 'jeffreyiacono/vim-colors-wombat'
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -31,7 +32,8 @@ set autowrite "auto save
 autocmd CursorHold *  wall
 autocmd CursorHoldI *  wall
 
-nnoremap ; : "ノーマルモードではセミコロンをコロン扱いする
+"ノーマルモードではセミコロンをコロン扱いする
+nnoremap ; :
 
 inoremap jj <ESC> " in insert mode, jj means <ESC>.
 
