@@ -1,18 +1,20 @@
+set nocompatible
+
 """"""""""""""""""""""""""""""""""""""""
 " Package Manager
 """"""""""""""""""""""""""""""""""""""""
-" Vundle を初期化して
-" Vundle 自身も Vundle で管理
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-rails'
-Bundle 'unite.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'groenewege/vim-less'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mattn/zencoding-vim'
-Bundle 'surround.vim'
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'surround.vim'
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -23,19 +25,15 @@ source $VIMRUNTIME/macros/matchit.vim
 """"""""""""""""""""""""""""""""""""""""
 
 
-"disable auto backup
-set nobk
+set nobk "disable auto backup 
 
-"auto save
-set autowrite
+set autowrite "auto save
 autocmd CursorHold *  wall
 autocmd CursorHoldI *  wall
 
-"ノーマルモードではセミコロンをコロン扱いする
-nnoremap ; :
+nnoremap ; : "ノーマルモードではセミコロンをコロン扱いする
 
-" in insert mode, jj means <ESC>.
-inoremap jj <ESC>
+inoremap jj <ESC> " in insert mode, jj means <ESC>.
 
 """ unite.vim
 " 入力モードで開始する
@@ -65,3 +63,5 @@ nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
 
 " ファイル形式検出、プラグイン、インデントを ON
 filetype plugin indent on 
+
+NeoBundleCheck
