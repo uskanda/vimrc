@@ -18,6 +18,7 @@ NeoBundle 'surround.vim'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jamestomasino/actionscript-vim-bundle'
+NeoBundle 'scrooloose/nerdtree' 
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
