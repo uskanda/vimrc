@@ -52,7 +52,10 @@ function! s:unite_project(...)
 	      execute 'Unite' opts 'file_rec:' . dir
 endfunction
 
-"LESS補完設定
+"NERDTree設定
+map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
+
+"拡張子設定
 autocmd BufNewFile,BufRead *.less set filetype=css
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
