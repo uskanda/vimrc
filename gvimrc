@@ -8,3 +8,4 @@ if has("gui_running")
 	au GUIEnter * set fullscreen
 endif
 command Fullscreen :emenu Window.Toggle\ Full\ Screen\ Mode
+
