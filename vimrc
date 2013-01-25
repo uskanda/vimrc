@@ -16,6 +16,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'surround.vim'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'jamestomasino/actionscript-vim-bundle'
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -51,6 +53,7 @@ endfunction
 
 "LESS補完設定
 autocmd BufNewFile,BufRead *.less set filetype=css
+autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
