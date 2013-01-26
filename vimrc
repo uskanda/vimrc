@@ -9,6 +9,7 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'unite.vim'
+NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -69,6 +70,12 @@ function! s:unite_project(...)
 	    let dir = unite#util#path2project_directory(expand('%'))
 	      execute 'Unite' opts 'file_rec:' . dir
 endfunction
+""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""
+" unite-outline
+""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
