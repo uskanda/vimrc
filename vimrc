@@ -19,6 +19,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jamestomasino/actionscript-vim-bundle'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
 NeoBundleLazy 'skwp/vim-rspec', { 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'skammer/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
@@ -42,6 +43,7 @@ set shiftwidth=4                                  " インデント時の空白�
 set infercase                                     " 小文字で打った単語でも大文字で補完できるようにする
 set ignorecase                                    " 検索で大文字小文字を区別しない
 set textwidth=0                                   " 勝手に改行しないようにする
+set noswapfile
 set nobk "disable auto backup 
 """"""""""""""""""""""""""""""""""""""""
 
