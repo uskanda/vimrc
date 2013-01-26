@@ -19,6 +19,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jamestomasino/actionscript-vim-bundle'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'motemen/git-vim'
 NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
 NeoBundleLazy 'skwp/vim-rspec', { 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
