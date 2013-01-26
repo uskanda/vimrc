@@ -19,6 +19,7 @@ NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'surround.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jamestomasino/actionscript-vim-bundle'
+NeoBundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'motemen/git-vim'
@@ -77,8 +78,8 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""
 " unite commands
 """"""""""""""""""""""""""""""""""""""""
-nnoremap <silent> ,uo :<C-u>Unite outline<CR>
-nnoremap <silent> ,uh :<C-u>Unite help<CR>
+nnoremap <silent> ,o :<C-u>Unite outline<CR>
+nnoremap <silent> ,h :<C-u>Unite help<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -106,16 +107,11 @@ autocmd BufNewFile,BufRead *.less set filetype=css
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 """"""""""""""""""""""""""""""""""""""""
 
-" バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-" " 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> ,r :<C-u>Unite -buffer-name=register register<CR>
 " " 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
 
 " ファイル形式検出、プラグイン、インデントを ON
