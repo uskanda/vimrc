@@ -10,6 +10,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'unite.vim'
 NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'tsukkee/unite-help'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -21,6 +22,7 @@ NeoBundle 'jamestomasino/actionscript-vim-bundle'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'motemen/git-vim'
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
 NeoBundleLazy 'skwp/vim-rspec', { 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
@@ -73,9 +75,10 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
-" unite-outline
+" unite commands
 """"""""""""""""""""""""""""""""""""""""
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+nnoremap <silent> ,uh :<C-u>Unite help<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
