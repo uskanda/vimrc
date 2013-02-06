@@ -22,6 +22,7 @@ NeoBundle 'jamestomasino/actionscript-vim-bundle'
 NeoBundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
