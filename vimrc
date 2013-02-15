@@ -120,4 +120,10 @@ nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
 " ファイル形式検出、プラグイン、インデントを ON
 filetype plugin indent on 
 
+""""""""""""""""""""""""""""""""""""""""
+":Renameでファイルリネーム
+""""""""""""""""""""""""""""""""""""""""
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
+""""""""""""""""""""""""""""""""""""""""
+
 NeoBundleCheck
