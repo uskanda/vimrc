@@ -29,6 +29,8 @@ NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
 NeoBundleLazy 'skwp/vim-rspec', { 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'skammer/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
+NeoBundle 'glidenote/octoeditor.vim'
+NeoBundle 'kana/vim-arpeggio'
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -53,9 +55,13 @@ set noswapfile
 set nobk "disable auto backup 
 """"""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""
+" オートセーブ
+""""""""""""""""""""""""""""""""""""""""
 set autowrite "auto save
 autocmd CursorHold *  wall
 autocmd CursorHoldI *  wall
+""""""""""""""""""""""""""""""""""""""""
 
 "ノーマルモードではセミコロンをコロン扱いする
 nnoremap ; :
@@ -68,6 +74,7 @@ inoremap jj <ESC> " in insert mode, jj means <ESC>.
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
 nnoremap <silent> ,p :<C-u>call <SID>unite_project('-start-insert')<CR>
+nnoremap <silent> ,up :<C-u>call <SID>unite_project('-start-insert')<CR>
 
 function! s:unite_project(...)
 	  let opts = (a:0 ? join(a:000, ' ') : '')
@@ -79,8 +86,8 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""
 " unite commands
 """"""""""""""""""""""""""""""""""""""""
-nnoremap <silent> ,o :<C-u>Unite outline<CR>
-nnoremap <silent> ,h :<C-u>Unite help<CR>
+nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+nnoremap <silent> ,uh :<C-u>Unite help<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -96,11 +103,20 @@ inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 """"""""""""""""""""""""""""""""""""""""
 
-
 """"""""""""""""""""""""""""""""""""""""
 "NERDTree設定
 """"""""""""""""""""""""""""""""""""""""
 map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
+""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""
+" Octoeditor
+""""""""""""""""""""""""""""""""""""""""
+map ,on  :OctopressNew<CR>
+map ,ol  :OctopressList<CR>
+map ,og  :OctopressGrep<CR>
+nmap ,og  :OctopressGenerate<CR>
+nmap ,od  :OctopressDeploy<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -109,6 +125,8 @@ map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
 autocmd BufNewFile,BufRead *.less set filetype=css
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 """"""""""""""""""""""""""""""""""""""""
+
+
 
 " ファイル一覧
 nnoremap <silent> ,f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
@@ -119,6 +137,10 @@ nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
 
 " ファイル形式検出、プラグイン、インデントを ON
 filetype plugin indent on 
+
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
 
 """"""""""""""""""""""""""""""""""""""""
 ":Renameでファイルリネーム
