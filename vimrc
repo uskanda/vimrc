@@ -14,7 +14,7 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'surround.vim'
 NeoBundle 'tomtom/tcomment_vim'
@@ -31,7 +31,7 @@ NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'h
 NeoBundleLazy 'skammer/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
 NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'vim-scripts/svn-diff.vim' 
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
