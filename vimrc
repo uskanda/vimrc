@@ -20,7 +20,7 @@ NeoBundle 'surround.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jamestomasino/actionscript-vim-bundle'
 NeoBundle 'Highlight-UnMatched-Brackets'
-NeoBundle 'scrooloose/nerdtree' 
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'motemen/git-vim'
@@ -31,7 +31,8 @@ NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'h
 NeoBundleLazy 'skammer/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
 NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'vim-scripts/svn-diff.vim' 
+NeoBundle 'vim-scripts/svn-diff.vim'
+NeoBundle 'bling/vim-airline'
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -53,7 +54,7 @@ set infercase                                     " 小文字で打った単語�
 set ignorecase                                    " 検索で大文字小文字を区別しない
 set textwidth=0                                   " 勝手に改行しないようにする
 set noswapfile
-set nobk "disable auto backup 
+set nobk "disable auto backup
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -78,9 +79,9 @@ nnoremap <silent> ,p :<C-u>call <SID>unite_project('-start-insert')<CR>
 nnoremap <silent> ,up :<C-u>call <SID>unite_project('-start-insert')<CR>
 
 function! s:unite_project(...)
-	  let opts = (a:0 ? join(a:000, ' ') : '')
-	    let dir = unite#util#path2project_directory(expand('%'))
-	      execute 'Unite' opts 'file_rec:' . dir
+  let opts = (a:0 ? join(a:000, ' ') : '')
+    let dir = unite#util#path2project_directory(expand('%'))
+      execute 'Unite' opts 'file_rec:' . dir
 endfunction
 """"""""""""""""""""""""""""""""""""""""
 
@@ -137,7 +138,7 @@ nnoremap <silent> ,r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
 
 " ファイル形式検出、プラグイン、インデントを ON
-filetype plugin indent on 
+filetype plugin indent on
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
