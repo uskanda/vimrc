@@ -11,7 +11,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'unite.vim'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-help'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mattn/emmet-vim'
@@ -31,8 +31,19 @@ NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'h
 NeoBundleLazy 'skammer/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
 NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'vim-scripts/svn-diff.vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'kakkyz81/evervim'
+NeoBundle 'osyo-manga/vim-gift'
+NeoBundle 'osyo-manga/vim-automatic'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -93,15 +104,19 @@ nnoremap <silent> ,uh :<C-u>Unite help<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
-"neocomplcache設定
+"neocomplete設定
 """"""""""""""""""""""""""""""""""""""""
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 0
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*unite\*'
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete_enable_at_startup = 1
+let g:neocomplete_enable_smart_case = 1
+let g:neocomplete_enable_camel_case_completion = 0
+let g:neocomplete_enable_underbar_completion = 1
+let g:neocomplete_min_syntax_length = 3
+let g:neocomplete_lock_buffer_name_pattern = '\*unite\*'
+inoremap <expr><CR>  neocomplete#smart_close_popup() . "\<CR>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 """"""""""""""""""""""""""""""""""""""""
 
@@ -119,6 +134,19 @@ map ,ol  :OctopressList<CR>
 map ,og  :OctopressGrep<CR>
 nmap ,og  :OctopressGenerate<CR>
 nmap ,od  :OctopressDeploy<CR>
+""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""
+" Evervim
+""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> ,el :<C-u>EvervimNotebookList<CR>
+nnoremap <silent> ,eT :<C-u>EvervimListTags<CR>
+nnoremap <silent> ,en :<C-u>EvervimCreateNote<CR>
+nnoremap <silent> ,eb :<C-u>EvervimOpenBrowser<CR>
+nnoremap <silent> ,ec :<C-u>EvervimOpenClient<CR>
+nnoremap ,es :<C-u>EvervimSearchByQuery<SPACE>
+nnoremap <silent> ,et :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done -tag:someday<CR>
+nnoremap <silent> ,eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -149,5 +177,18 @@ endif
 """"""""""""""""""""""""""""""""""""""""
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 """"""""""""""""""""""""""""""""""""""""
+
+let g:automatic_config = [
+\   {
+\       "match" : {
+\           "bufname" : '__EVERVIM_LIST__',
+\       },
+\       "set" : {
+\           'columns' : 30,
+\           'move' : "left",
+\           'is_close_focus_out' : 1,
+\       },
+\   },
+\]
 
 NeoBundleCheck
