@@ -31,7 +31,7 @@ NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'h
 NeoBundleLazy 'skammer/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
 NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'bling/vim-airline'
+"NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kakkyz81/evervim'
 NeoBundle 'osyo-manga/vim-gift'
