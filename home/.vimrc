@@ -37,6 +37,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kakkyz81/evervim'
 NeoBundle 'osyo-manga/vim-gift'
 NeoBundle 'osyo-manga/vim-automatic'
+NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -130,6 +131,12 @@ map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
+" clever-f
+""""""""""""""""""""""""""""""""""""""""
+let g:clever_f_smart_case = 1
+""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""
 " Octoeditor
 """"""""""""""""""""""""""""""""""""""""
 map ,on  :OctopressNew<CR>
@@ -192,6 +199,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 """"""""""""""""""""""""""""""""""""""""
+
 
 let g:automatic_config = [
 \   {
