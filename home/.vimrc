@@ -23,6 +23,7 @@ NeoBundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
@@ -194,11 +195,52 @@ let g:automatic_config = [
 NeoBundleCheck
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \ }
+\ 'colorscheme': 'wombat',
+\ 'component': {
+\   'readonly': '%{&readonly?"⭤":""}',
+\   'dir': '%.50(%{expand("%:h:s?\\S$?\\0/?")}%)',
+\ },
+\ 'active': {
+\   'left': [ [ 'mode', 'paste'],  ['readonly', 'dir', 'filename' ], ['fugitive', 'gitgutter', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'fugitive': 'MyFugitive',
+\   'gitgutter': 'MyGitGutter',
+\ },
+\ 'separator': { 'left': '⮀', 'right': '⮂' },
+\ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+\ }
+
+
+function! MyFugitive()
+  try
+    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+      let _ = fugitive#head()
+      return strlen(_) ? '⭠ '._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! MyGitGutter()
+  if ! exists('*GitGutterGetHunkSummary')
+        \ || ! get(g:, 'gitgutter_enabled', 0)
+        \ || winwidth('.') <= 90
+    return ''
+  endif
+  let symbols = [
+        \ g:gitgutter_sign_added . ' ',
+        \ g:gitgutter_sign_modified . ' ',
+        \ g:gitgutter_sign_removed . ' '
+        \ ]
+  let hunks = GitGutterGetHunkSummary()
+  let ret = []
+  for i in [0, 1, 2]
+    if hunks[i] > 0
+      call add(ret, symbols[i] . hunks[i])
+    endif
+  endfor
+  return join(ret, ' ')
+endfunction
 
