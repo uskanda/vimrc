@@ -31,7 +31,7 @@ NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'h
 NeoBundleLazy 'skammer/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
 NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
-"NeoBundle 'bling/vim-airline'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kakkyz81/evervim'
 NeoBundle 'osyo-manga/vim-gift'
@@ -192,3 +192,13 @@ let g:automatic_config = [
 \]
 
 NeoBundleCheck
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
