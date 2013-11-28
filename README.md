@@ -1,8 +1,6 @@
 # uskanda's Vim Settings
+.vimrc and related setting files
 
 ## Installation
-    cd
-    git clone git://github.com/uskanda/vimrc.git
-    mv vimrc .vim
-    cd .vim
-    sh install.sh
+Please use [homesick](https://github.com/technicalpickles/homesick/).
+
