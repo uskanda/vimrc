@@ -72,9 +72,17 @@ set nobk "disable auto backup
 """"""""""""""""""""""""""""""""""""""""
 " オートセーブ
 """"""""""""""""""""""""""""""""""""""""
-set autowrite "auto save
-autocmd CursorHold *  wall
-autocmd CursorHoldI *  wall
+set autowrite
+set updatetime=500
+
+function s:AutoWriteIfPossible()
+  if !&readonly && bufname('%') !=# ''
+    w
+  endif
+endfunction
+
+autocmd CursorHold * call s:AutoWriteIfPossible()
+autocmd CursorHoldI * call s:AutoWriteIfPossible()
 """"""""""""""""""""""""""""""""""""""""
 
 "ノーマルモードではセミコロンをコロン扱いする
