@@ -151,6 +151,18 @@ nnoremap <silent> ,eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
+" fugitive
+""""""""""""""""""""""""""""""""""""""""
+nnoremap ,gd :<C-u>Gdiff<Enter>
+nnoremap ,gs :<C-u>Gstatus<Enter>
+nnoremap ,gl :<C-u>Glog<Enter>
+nnoremap ,ga :<C-u>Gwrite<Enter>
+nnoremap ,gc :<C-u>Gcommit<Enter>
+nnoremap ,gC :<C-u>Git commit --amend<Enter>
+nnoremap ,gb :<C-u>Gblame<Enter>
+""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""
 "拡張子設定
 """"""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.less set filetype=css
