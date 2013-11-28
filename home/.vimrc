@@ -75,14 +75,8 @@ set nobk "disable auto backup
 set autowrite
 set updatetime=500
 
-function s:AutoWriteIfPossible()
-  if !&readonly && bufname('%') !=# ''
-    w
-  endif
-endfunction
-
-autocmd CursorHold * call s:AutoWriteIfPossible()
-autocmd CursorHoldI * call s:AutoWriteIfPossible()
+autocmd CursorHold * silent! wall
+autocmd CursorHoldI * silent! wall
 """"""""""""""""""""""""""""""""""""""""
 
 "ノーマルモードではセミコロンをコロン扱いする
