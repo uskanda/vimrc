@@ -2,6 +2,8 @@ colorscheme wombat
 set background=dark
 set transparency=1
 
+set guioptions-=e
+
 if has("gui_running")
 	set guifont=Ricty\ For\ Powerline:h14
     if &guifont != 'Ricty\ For\ Powerline:h14'

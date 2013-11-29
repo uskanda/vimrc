@@ -267,3 +267,8 @@ function! MyGitGutter()
   return join(ret, ' ')
 endfunction
 
+
+let g:lightline.tabline = {
+      \ 'left': [ [ 'tabs' ] ],
+      \ 'right': [ [ 'close' ] ] }
+
