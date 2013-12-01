@@ -1,15 +1,19 @@
+"## 共通設定
+" vi互換でなく、Vimデフォルト設定にする
 set nocompatible
+" 文字コードをUTF-8に設定する
 set encoding=utf-8
 
-""""""""""""""""""""""""""""""""""""""""
-" Package Manager
-""""""""""""""""""""""""""""""""""""""""
+"## 各種プラグイン読み込み - NeoBundle
+" [NeoBundle](https://github.com/Shougo/neobundle.vim)を使ってプラグインの管理をします。
+"### NeoBundle設定
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'unite.vim'
+"### 読み込むプラグインを指定
+NeoBundleFetch 'Shougo/neobundle.vim'            "プラグイン管理
+NeoBundle 'unite.vim'                            "QuickSilver/anything.elライクな検索
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-help'
 function! s:meet_neocomplete_requirements()
@@ -18,10 +22,10 @@ endfunction
 if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
 endif
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
+NeoBundle 'groenewege/vim-less'                 "lessファイル
+NeoBundle 'kchmck/vim-coffee-script'            "coffeescript
+NeoBundle 'mattn/emmet-vim'                     "zen-coding
+NeoBundle 'jeffreyiacono/vim-colors-wombat'     "カラースキーム
 NeoBundle 'surround.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'jamestomasino/actionscript-vim-bundle'
@@ -56,14 +60,14 @@ NeoBundle 'Shougo/vimproc', {
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
-" Builtin Package
+" Vimビルトインのプラグイン読み込み
 """"""""""""""""""""""""""""""""""""""""
 " Match Complex Parentheses
 source $VIMRUNTIME/macros/matchit.vim
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
-" General Settings
+" 基本設定
 """"""""""""""""""""""""""""""""""""""""
 set number
 set smarttab                                      " 頭の余白内で <Tab> を打ち込むと空白を挿入
@@ -78,7 +82,7 @@ set nobk "disable auto backup
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
-" オートセーブ
+" オートセーブ設定
 """"""""""""""""""""""""""""""""""""""""
 set autowrite
 set updatetime=500
@@ -115,7 +119,7 @@ nnoremap <silent> ,uh :<C-u>Unite help<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
-"neocomplete設定
+"## 補完 - Neocomplete
 """"""""""""""""""""""""""""""""""""""""
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
