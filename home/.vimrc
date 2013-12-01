@@ -43,6 +43,7 @@ NeoBundle 'kakkyz81/evervim'
 NeoBundle 'osyo-manga/vim-gift'
 NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'rhysd/conflict-marker.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
