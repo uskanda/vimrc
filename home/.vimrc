@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 
 """"""""""""""""""""""""""""""""""""""""
 " Package Manager
@@ -271,4 +272,9 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
+
+
+let g:lightline.tabline = {
+      \ 'left': [ [ 'tabs' ] ],
+      \ 'right': [ [ 'close' ] ] }
 
