@@ -282,3 +282,20 @@ let g:lightline.tabline = {
       \ 'left': [ [ 'tabs' ] ],
       \ 'right': [ [ 'close' ] ] }
 
+" ## Tablineキーバインド
+" TODO: use prefix key
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> t'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+
+nmap <silent> tc :tablast <bar> tabnew<CR>
+" tc 新しいタブを一番右に作る
+nmap <silent> tx :tabclose<CR>
+" tx タブを閉じる
+nmap <silent> tn :tabnext<CR>
+nmap <silent> tt :tabnext<CR>
+" tn 次のタブ
+nmap <silent> tp :tabprevious<CR>
+" tp 前のタブ
