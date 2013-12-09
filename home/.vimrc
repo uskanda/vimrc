@@ -3,6 +3,7 @@
 set nocompatible
 " 文字コードをUTF-8に設定する
 set encoding=utf-8
+set ambiwidth=double
 
 "## 各種プラグイン読み込み - NeoBundle
 " [NeoBundle](https://github.com/Shougo/neobundle.vim)を使ってプラグインの管理をします。
