@@ -24,6 +24,7 @@ if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
 endif
 NeoBundle 'groenewege/vim-less'                 "lessファイル
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'            "coffeescript
 NeoBundle 'mattn/emmet-vim'                     "zen-coding
 NeoBundle 'jeffreyiacono/vim-colors-wombat'     "カラースキーム
