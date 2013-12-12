@@ -27,6 +27,7 @@ set nocompatible
 set encoding=utf-8                 " 文字コードをUTF-8に設定する
 set ambiwidth=double               
 set number
+set relativenumber                 " 現在行数からの差分行を表示する
 set smarttab                       " 頭の余白内で <Tab> を打ち込むと空白を挿入
 set expandtab                      " tab文字をスペースに展開
 set tabstop=4                      " <Tab>を押したときの空白文字数
