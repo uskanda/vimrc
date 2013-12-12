@@ -1,36 +1,82 @@
-"## 共通設定
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"# uskanda's Vim settings - details
+"設定ごとの詳細を書きます。
+"## プラグインの提供機能別索引
+"[Vimでもともと設定可能な代表的オプションが知りたい - 基本設定](#neobundle) 
+"[Vimプラグインを管理したい - NeoBundle](#neobundle) 
+"[ファイルに変更があったら自動的にセーブしたい - オートセーブ](#autosave) 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"## 依存する外部ソフトウェア・ファイル等
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"## <a name="basics">基本設定
+"`````````````````````````````````````````````````````````````
 " vi互換でなく、Vimデフォルト設定にする
 set nocompatible
-" 文字コードをUTF-8に設定する
-set encoding=utf-8
-set ambiwidth=double
+set encoding=utf-8                 " 文字コードをUTF-8に設定する
+set ambiwidth=double               
+set number
+set smarttab                       " 頭の余白内で <Tab> を打ち込むと空白を挿入
+set expandtab                      " tab文字をスペースに展開
+set tabstop=4                      " <Tab>を押したときの空白文字数
+set shiftwidth=4                   " インデント時の空白数
+set infercase                      " 小文字で打った単語でも大文字で補完できるようにする
+set ignorecase                     " 検索で大文字小文字を区別しない
+set textwidth=0                    " 勝手に改行しないようにする
+set noswapfile
+set nobk                           " バックアップの作成をしないようにする
+"`````````````````````````````````````````````````````````````
 
-"## 各種プラグイン読み込み - NeoBundle
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"## <a name="neobundle">Vimプラグインの管理 - NeoBundle
 " [NeoBundle](https://github.com/Shougo/neobundle.vim)を使ってプラグインの管理をします。
-"### NeoBundle設定
+" 利用するプラグインを記述しておくと、起動時に自動的にインストールされていない
+" プラグインを検知し、インストールします。
+"### NeoBundle本体の読み込み・設定
+"`````````````````````````````````````````````````````````````
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#rc(expand('~/.vim/bundle/'))
-"### 読み込むプラグインを指定
 NeoBundleFetch 'Shougo/neobundle.vim'            "プラグイン管理
+"`````````````````````````````````````````````````````````````
+"### 読み込むプラグインの指定
+"github上に公開されているプラグインの場合、 `NeoBundle {ユーザ名/レポジトリ名}` で
+"読み込むことができます。  
+"`````````````````````````````````````````````````````````````
 NeoBundle 'unite.vim'                            "QuickSilver/anything.elライクな検索
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-help'
+NeoBundle 'groenewege/vim-less'                 "lessファイル
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'kchmck/vim-coffee-script'            "coffeescript
+NeoBundle 'mattn/emmet-vim'                     "zen-coding
+NeoBundle 'jeffreyiacono/vim-colors-wombat'     "カラースキーム
+"`````````````````````````````````````````````````````````````
+"### 遅延読み込み
+"特定の拡張子のファイルに対してのみ必要なプラグイン等、
+"必要なケースが限られているプラグインについては、`NeoBundleLazy` をNeoBundleのかわりに用いることで、
+"Vimの起動速度を改善できます。
+"`````````````````````````````````````````````````````````````
+NeoBundleLazy 'ap/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
+NeoBundleLazy 'skwp/vim-rspec', { 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
+"`````````````````````````````````````````````````````````````
+"neocompleteはlua必須 
 function! s:meet_neocomplete_requirements()
     return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
 endfunction
 if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
 endif
-NeoBundle 'groenewege/vim-less'                 "lessファイル
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'kchmck/vim-coffee-script'            "coffeescript
-NeoBundle 'mattn/emmet-vim'                     "zen-coding
-NeoBundle 'jeffreyiacono/vim-colors-wombat'     "カラースキーム
 NeoBundle 'surround.vim'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'jamestomasino/actionscript-vim-bundle'
 NeoBundle 'Highlight-UnMatched-Brackets'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-rails'
@@ -39,9 +85,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
-NeoBundleLazy 'skwp/vim-rspec', { 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
-NeoBundleLazy 'ap/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
 NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'itchyny/lightline.vim'
@@ -52,18 +95,6 @@ NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'rhysd/conflict-marker.vim'
 NeoBundle 'osyo-manga/vim-anzu'
-" mapping
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-
-" clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-
-
-" statusline
-set statusline=%{anzu#search_status()}
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -72,7 +103,17 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix' : 'make -f make_unix.mak',
   \ },
 \ }
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+" statusline
+set statusline=%{anzu#search_status()}
 
 """"""""""""""""""""""""""""""""""""""""
 " Vimビルトインのプラグイン読み込み
@@ -81,30 +122,17 @@ NeoBundle 'Shougo/vimproc', {
 source $VIMRUNTIME/macros/matchit.vim
 """"""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""
-" 基本設定
-""""""""""""""""""""""""""""""""""""""""
-set number
-set smarttab                                      " 頭の余白内で <Tab> を打ち込むと空白を挿入
-set expandtab                                     " tab文字をスペースに展開
-set tabstop=4                                     " <Tab>を押したときの空白文字数
-set shiftwidth=4                                  " インデント時の空白数
-set infercase                                     " 小文字で打った単語でも大文字で補完できるようにする
-set ignorecase                                    " 検索で大文字小文字を区別しない
-set textwidth=0                                   " 勝手に改行しないようにする
-set noswapfile
-set nobk "disable auto backup
-""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""
-" オートセーブ設定
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"## <a name="autosave">ファイルに変更を加えたら自動的にセーブする - オートセーブ設定
+"バージョン管理システムを利用しているのならば、毎回ファイルをセーブするコマンドを打つのは時間の無駄です。
+"ファイルに変更があったら即セーブするようにしてしまいましょう。
+"`````````````````````````````````````````````````````````````
 set autowrite
-set updatetime=500
+set updatetime=500 "0.5秒
 
 autocmd CursorHold * silent! wall
 autocmd CursorHoldI * silent! wall
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
 
 "ノーマルモードではセミコロンをコロン扱いする
 nnoremap ; :
@@ -112,10 +140,14 @@ nnoremap ; :
 inoremap jj <ESC> " in insert mode, jj means <ESC>.
 
 """"""""""""""""""""""""""""""""""""""""
-" unite.vim
+"## Unite.vim
 """"""""""""""""""""""""""""""""""""""""
+"```
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 nnoremap <silent> ,p :<C-u>call <SID>unite_project('-start-insert')<CR>
 nnoremap <silent> ,up :<C-u>call <SID>unite_project('-start-insert')<CR>
 
@@ -124,14 +156,26 @@ function! s:unite_project(...)
     let dir = unite#util#path2project_directory(expand('%'))
       execute 'Unite' opts 'file_rec:' . dir
 endfunction
-""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""""""""""""
-" unite commands
-""""""""""""""""""""""""""""""""""""""""
+"http://blog.monochromegane.com/blog/2013/09/18/ag-and-unite/
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 nnoremap <silent> ,uh :<C-u>Unite help<CR>
-""""""""""""""""""""""""""""""""""""""""
+"```
+
 
 """"""""""""""""""""""""""""""""""""""""
 "## 補完 - Neocomplete
