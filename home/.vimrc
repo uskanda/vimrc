@@ -1,5 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"# uskanda's Vim settings - details
+"# Vim設定の詳細
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "設定ごとの詳細を書きます。
 "## プラグインの提供機能別索引
 "[Vimでもともと設定可能な代表的オプションが知りたい - 基本設定](#neobundle) 
@@ -10,9 +11,13 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## 依存する外部ソフトウェア・ファイル等
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"* [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)   
+"  ファイル検索ツールです。存在しなくても動作しますが、一部検索が高速になります。単体でも非常に使えるのでおすすめ。
+"* [Powerline fonts](https://github.com/Lokaltog/powerline-fonts)   
+"  フォントをインストールして、VimのデフォルトフォントにしておくとLightlineの見栄えがよくなります。   
+"  パッチを当てることで上記以外のフォントにも適用可能です。
+"  本設定では[Ricty](http://save.sys.t.u-tokyo.ac.jp/~yusa/fonts/ricty.html)にパッチを当てたフォントを利用しています。
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## <a name="basics">基本設定
@@ -159,9 +164,9 @@ endfunction
 
 "http://blog.monochromegane.com/blog/2013/09/18/ag-and-unite/
 " grep検索
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,s  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 " カーソル位置の単語をgrep検索
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,cs :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 " grep検索結果の再呼出
 nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
