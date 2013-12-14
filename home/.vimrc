@@ -125,16 +125,15 @@ source $VIMRUNTIME/macros/matchit.vim
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"## <a name="autosave">ファイルに変更を加えたら自動的にセーブする - オートセーブ設定
+"## <a name="autosave">ファイルに変更を加えたら自動的にセーブする - Auto-Save 
+"[vim-scripts/vim-auto-save](https://github.com/vim-scripts/vim-auto-save)
 "バージョン管理システムを利用しているのならば、毎回ファイルをセーブするコマンドを打つのは時間の無駄です。
 "ファイルに変更があったら即セーブするようにしてしまいましょう。
 "`````````````````````````````````````````````````````````````
-set autowrite
-set updatetime=500 "0.5秒
+NeoBundle 'vim-scripts/vim-auto-save'
 
-"TODO:一度内部的にエラーが起きたらその後自動セーブされないかも
-autocmd CursorHold * silent! wall
-autocmd CursorHoldI * silent! wall
+" デフォルトで有効にする
+let g:auto_save = 1
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
