@@ -31,6 +31,9 @@ set ignorecase                     " 検索で大文字小文字を区別しな�
 set textwidth=0                    " 勝手に改行しないようにする
 set noswapfile
 set nobk                           " バックアップの作成をしないようにする
+if has('kaoriya')
+    set imdisable                  " インサートモードから抜けるときにIMEを必ずオフにする:要kaoriya版
+endif
 "`````````````````````````````````````````````````````````````
 
 
