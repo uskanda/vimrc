@@ -55,11 +55,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'            "プラグイン管理
 "github上に公開されているプラグインの場合、 `NeoBundle {ユーザ名/レポジトリ名}` で
 "読み込むことができます。  
 "`````````````````````````````````````````````````````````````
-NeoBundle 'unite.vim'                            "QuickSilver/anything.elライクな検索
+NeoBundle 'unite.vim'                           "QuickSilver/anything.elライクな検索
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'groenewege/vim-less'                 "lessファイル
-NeoBundle 'slim-template/vim-slim'
+NeoBundle 'slim-template/vim-slim'              "slimファイル
 NeoBundle 'kchmck/vim-coffee-script'            "coffeescript
 NeoBundle 'mattn/emmet-vim'                     "zen-coding
 NeoBundle 'jeffreyiacono/vim-colors-wombat'     "カラースキーム
@@ -81,25 +81,25 @@ if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
 endif
 NeoBundle 'surround.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'Highlight-UnMatched-Brackets'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-rails'
+NeoBundle 'tomtom/tcomment_vim'                 "gcでコメントのトグル
+NeoBundle 'Highlight-UnMatched-Brackets'        "不一致の括弧を強調表示
+NeoBundle 'scrooloose/nerdtree'                 "IDEっぽいファイル表示
+NeoBundle 'tpope/vim-rails'                     "Rails支援
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'                  "git支援
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
 NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'itchyny/lightline.vim'               "ステータスバー/タブバーの情報表示強化
+NeoBundle 'airblade/vim-gitgutter'              "git編集行をウィンドウ左に可視化表示
 NeoBundle 'kakkyz81/evervim'
 NeoBundle 'osyo-manga/vim-gift'
-NeoBundle 'osyo-manga/vim-automatic'
-NeoBundle 'rhysd/clever-f.vim'
-NeoBundle 'rhysd/conflict-marker.vim'
-NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'osyo-manga/vim-automatic'            "Window分割支援
+NeoBundle 'rhysd/clever-f.vim'                  "fコマンドを強化
+NeoBundle 'rhysd/conflict-marker.vim'           "VCSのコンフリクト支援
+NeoBundle 'osyo-manga/vim-anzu'                 "検索時にヒット数を表示
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -111,15 +111,6 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" mapping
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
-" clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-" statusline
-set statusline=%{anzu#search_status()}
 
 """"""""""""""""""""""""""""""""""""""""
 " Vimビルトインのプラグイン読み込み
@@ -408,3 +399,15 @@ nmap <silent> tt :tabnext<CR>
 " tn 次のタブ
 nmap <silent> tp :tabprevious<CR>
 " tp 前のタブ
+
+
+" vim-anzu
+" mapping
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" clear status
+nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
+" statusline
+set statusline=%{anzu#search_status()}
