@@ -16,8 +16,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## <a name="basics">基本設定
 "`````````````````````````````````````````````````````````````
-" vi互換でなく、Vimデフォルト設定にする
-set nocompatible
+set nocompatible                   " vi互換でなく、Vimデフォルト設定にする
 set encoding=utf-8                 " 文字コードをUTF-8に設定する
 set ambiwidth=double               
 set number                         " ファイル左に行番号を表示する
@@ -35,7 +34,6 @@ if has('kaoriya')
     set imdisable                  " インサートモードから抜けるときにIMEを必ずオフにする:要kaoriya版
 endif
 "`````````````````````````````````````````````````````````````
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## <a name="neobundle">Vimプラグインの管理 - NeoBundle
@@ -69,7 +67,6 @@ NeoBundle 'jeffreyiacono/vim-colors-wombat'     "カラースキーム
 "必要なケースが限られているプラグインについては、`NeoBundleLazy` をNeoBundleのかわりに用いることで、
 "Vimの起動速度を改善できます。
 "`````````````````````````````````````````````````````````````
-NeoBundleLazy 'ap/vim-css-color', { 'autoload' : { 'filetypes': ['css'] } }
 NeoBundleLazy 'skwp/vim-rspec', { 'autoload': { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 NeoBundleLazy 'ruby-matchit', { 'autoload' : { 'filetypes': ['ruby', 'eruby', 'haml'] } }
 "`````````````````````````````````````````````````````````````
@@ -80,6 +77,7 @@ endfunction
 if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
 endif
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'surround.vim'
 NeoBundle 'tomtom/tcomment_vim'                 "gcでコメントのトグル
 NeoBundle 'Highlight-UnMatched-Brackets'        "不一致の括弧を強調表示
@@ -100,7 +98,8 @@ NeoBundle 'osyo-manga/vim-automatic'            "Window分割支援
 NeoBundle 'rhysd/clever-f.vim'                  "fコマンドを強化
 NeoBundle 'rhysd/conflict-marker.vim'           "VCSのコンフリクト支援
 NeoBundle 'osyo-manga/vim-anzu'                 "検索時にヒット数を表示
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'ap/vim-css-color'
+NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -285,7 +284,7 @@ nnoremap ,gb :<C-u>Gblame<Enter>
 """"""""""""""""""""""""""""""""""""""""
 "拡張子設定
 """"""""""""""""""""""""""""""""""""""""
-autocmd BufNewFile,BufRead *.less set filetype=css
+"autocmd BufNewFile,BufRead *.less set filetype=css
 autocmd BufNewFile,BufRead *.as set filetype=actionscript
 """"""""""""""""""""""""""""""""""""""""
 
