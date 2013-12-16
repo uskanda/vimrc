@@ -100,6 +100,7 @@ NeoBundle 'osyo-manga/vim-automatic'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'rhysd/conflict-marker.vim'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -213,6 +214,34 @@ let g:neocomplete#enable_camel_case_completion = 0
 let g:neocomplete#enable_underbar_completion = 1
 inoremap <expr><CR>  neocomplete#smart_close_popup() . "\<CR>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+autocmd FileType css,less,sass setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"`````````````````````````````````````````````````````````````
+
+""""""""""""""""""""""""""""""""""""""""
+"## スニペット - Neosnippet
+"`````````````````````````````````````````````````````````````
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""
