@@ -129,7 +129,7 @@ source $VIMRUNTIME/macros/matchit.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## <a name="autosave">ファイルに変更を加えたら自動的にセーブする - Auto-Save 
-"[vim-scripts/vim-auto-save](https://github.com/vim-scripts/vim-auto-save)
+"[vim-scripts/vim-auto-save](https://github.com/vim-scripts/vim-auto-save)  
 "バージョン管理システムを利用しているのならば、毎回ファイルをセーブするコマンドを打つのは時間の無駄です。
 "ファイルに変更があったら即セーブするようにしてしまいましょう。
 "`````````````````````````````````````````````````````````````
@@ -150,9 +150,11 @@ nnoremap ; :
 inoremap jj <ESC> " in insert mode, jj means <ESC>.
 "`````````````````````````````````````````````````````````````
 
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## <a name="unite">Unite.vim
-""""""""""""""""""""""""""""""""""""""""
+"[Shougo/unite.vim](https://github.com/Shougo/unite.vim)  
+"使いやすい検索インタフェースを提供してくれます。
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "`````````````````````````````````````````````````````````````
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
@@ -193,23 +195,25 @@ nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 nnoremap <silent> ,uh :<C-u>Unite help<CR>
 "```
 
-
 """"""""""""""""""""""""""""""""""""""""
 "## 補完 - Neocomplete
-""""""""""""""""""""""""""""""""""""""""
+"[Shougo/neocomplete.vim](https://github.com/Shougo/neocomplete.vim)
+"`````````````````````````````````````````````````````````````
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#auto_completion_start_length = 2
+let g:neocomplete#manual_completion_start_length = 0
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete_enable_at_startup = 1
-let g:neocomplete_enable_smart_case = 1
-let g:neocomplete_enable_camel_case_completion = 0
-let g:neocomplete_enable_underbar_completion = 1
-let g:neocomplete_min_syntax_length = 3
-let g:neocomplete_lock_buffer_name_pattern = '\*unite\*'
+let g:neocomplete#min_keyword_length = 2
+let g:neocomplete#lock_buffer_name_pattern = '\*unite\*'
+let g:neocomplete#enable_prefetch = 1
+
+let g:neocomplete#enable_camel_case_completion = 0
+let g:neocomplete#enable_underbar_completion = 1
 inoremap <expr><CR>  neocomplete#smart_close_popup() . "\<CR>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""
 "NERDTree設定
