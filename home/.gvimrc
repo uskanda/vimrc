@@ -5,6 +5,9 @@ set transparency=1
 set guioptions-=e
 
 if has("gui_running")
+    if has("kaoriya") 
+        set imdisable
+    endif
 	set guifont=Ricty\ For\ Powerline:h14
     if &guifont != 'Ricty\ For\ Powerline:h14'
         set guifont=Ricty:h14
