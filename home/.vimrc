@@ -414,4 +414,10 @@ set statusline=%{anzu#search_status()}
 NeoBundle "AndrewRadev/switch.vim"
 nnoremap - :Switch<cr>
 
+" gitgutter
+" CUIだとノーマルモードでタイプしたキーのゴミが稀に残るので対策
+if !has("gui_running")
+    let g:gitgutter_realtime = 0
+endif
+
 NeoBundleCheck
