@@ -18,7 +18,7 @@
 "`````````````````````````````````````````````````````````````
 set nocompatible                   " vi互換でなく、Vimデフォルト設定にする
 set encoding=utf-8                 " 文字コードをUTF-8に設定する
-set ambiwidth=double               
+set ambiwidth=double               " 全角文字の扱いを改善
 set number                         " ファイル左に行番号を表示する
 set relativenumber                 " カーソルの位置する行からの差分行数を表示する。set number時の挙動を一部上書きする
 set smarttab                       " 頭の余白内で <Tab> を打ち込むと空白を挿入
@@ -55,10 +55,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'            "プラグイン管理
 NeoBundle 'unite.vim'                           "QuickSilver/anything.elライクな検索
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'tsukkee/unite-help'
+NeoBundle 'mattn/emmet-vim'                     "zen-coding
+" add filetypes
 NeoBundle 'groenewege/vim-less'                 "lessファイル
 NeoBundle 'slim-template/vim-slim'              "slimファイル
 NeoBundle 'kchmck/vim-coffee-script'            "coffeescript
-NeoBundle 'mattn/emmet-vim'                     "zen-coding
 NeoBundle 'jeffreyiacono/vim-colors-wombat'     "カラースキーム
 "`````````````````````````````````````````````````````````````
 "### 遅延読み込み
@@ -99,6 +100,8 @@ NeoBundle 'rhysd/conflict-marker.vim'           "VCSのコンフリクト支援
 NeoBundle 'osyo-manga/vim-anzu'                 "検索時にヒット数を表示
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -123,8 +126,6 @@ source $VIMRUNTIME/macros/matchit.vim
 "バージョン管理システムを利用しているのならば、毎回ファイルをセーブするコマンドを打つのは時間の無駄です。
 "ファイルに変更があったら即セーブするようにしてしまいましょう。
 "`````````````````````````````````````````````````````````````
-NeoBundle 'vim-scripts/vim-auto-save'
-
 " デフォルトで有効にする
 let g:auto_save = 1
 "`````````````````````````````````````````````````````````````
