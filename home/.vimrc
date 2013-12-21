@@ -278,6 +278,7 @@ nnoremap ,gl :<C-u>Glog<Enter>
 nnoremap ,ga :<C-u>Gwrite<Enter>
 nnoremap ,gc :<C-u>Gcommit<Enter>
 nnoremap ,gC :<C-u>Git commit --amend<Enter>
+nnoremap ,gp :<C-u>Git push origin<Enter>
 nnoremap ,gb :<C-u>Gblame<Enter>
 """"""""""""""""""""""""""""""""""""""""
 
