@@ -102,6 +102,7 @@ NeoBundle 'ap/vim-css-color'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/vim-auto-save'
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -325,7 +326,6 @@ let g:automatic_config = [
 \   },
 \]
 
-NeoBundleCheck
 
 let g:lightline = {
 \ 'colorscheme': 'wombat',
@@ -411,3 +411,14 @@ nmap # <Plug>(anzu-sharp-with-echo)
 nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 " statusline
 set statusline=%{anzu#search_status()}
+
+NeoBundle "AndrewRadev/switch.vim"
+nnoremap - :Switch<cr>
+
+" gitgutter
+" CUIだとノーマルモードでタイプしたキーのゴミが稀に残るので対策
+if !has("gui_running")
+    let g:gitgutter_realtime = 0
+endif
+
+NeoBundleCheck
