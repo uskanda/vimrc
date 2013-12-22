@@ -100,8 +100,12 @@ NeoBundle 'rhysd/conflict-marker.vim'           "VCSのコンフリクト支援
 NeoBundle 'osyo-manga/vim-anzu'                 "検索時にヒット数を表示
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'vim-scripts/vim-auto-save'
+NeoBundle "osyo-manga/shabadou.vim"
+NeoBundle "osyo-manga/vim-watchdogs"
+NeoBundle 'vim-scripts/vim-auto-save'          "自動セーブ
+NeoBundle "jceb/vim-hier"                      "quickfix時のシンタックスハイライト
+NeoBundle "dannyob/quickfixstatus"             "現在行に関するquickfixメッセージをステータスバーに表示
+NeoBundle "sgur/unite-qf"
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
@@ -420,5 +424,19 @@ nnoremap - :Switch<cr>
 if !has("gui_running")
     let g:gitgutter_realtime = 0
 endif
+
+" watchdogs
+let g:quickrun_config = {
+\   "watchdogs_checker/_" : {
+\       "hook/close_quickfix/enable_exit" : 1,
+\   }
+\}
+if executable('rubocop')
+    let g:quickrun_config["ruby/watchdogs_checker"] = {
+    \       "type" : "watchdogs_checker/rubocop"
+    \   }
+endif
+let g:watchdogs_check_BufWritePost_enable = 1
+call watchdogs#setup(g:quickrun_config)
 
 NeoBundleCheck
