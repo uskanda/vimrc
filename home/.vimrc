@@ -5,7 +5,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## プラグインの提供機能別索引
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"* [Vimでもともと設定可能な代表的オプションが知りたい - 基本設定](#neobundle) 
+"* [Vimでもともと設定可能な代表的オプションが知りたい - 基本設定](#basics) 
 "* [Vimプラグインを管理したい - NeoBundle](#neobundle) 
 "* [ファイルに変更があったら自動的にセーブしたい - オートセーブ](#autosave) 
 "* [ノーマルモードでのコロンの入力が面倒 - セミコロンをコロン扱いにする](#important_keybind)
@@ -88,7 +88,6 @@ NeoBundle 'tpope/vim-fugitive'                  "git支援
 NeoBundle 'motemen/git-vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'YankRing.vim' "ヤンク後C-n,C-pでYankring
-NeoBundle 'glidenote/octoeditor.vim'
 NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'itchyny/lightline.vim'               "ステータスバー/タブバーの情報表示強化
 NeoBundle 'airblade/vim-gitgutter'              "git編集行をウィンドウ左に可視化表示
@@ -99,12 +98,12 @@ NeoBundle 'rhysd/clever-f.vim'                  "fコマンドを強化
 NeoBundle 'rhysd/conflict-marker.vim'           "VCSのコンフリクト支援
 NeoBundle 'osyo-manga/vim-anzu'                 "検索時にヒット数を表示
 NeoBundle 'ap/vim-css-color'
-NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'hail2u/vim-css3-syntax'              "css3
 NeoBundle "osyo-manga/shabadou.vim"
-NeoBundle "osyo-manga/vim-watchdogs"
-NeoBundle 'vim-scripts/vim-auto-save'          "自動セーブ
-NeoBundle "jceb/vim-hier"                      "quickfix時のシンタックスハイライト
-NeoBundle "dannyob/quickfixstatus"             "現在行に関するquickfixメッセージをステータスバーに表示
+NeoBundle "osyo-manga/vim-watchdogs"            "syntax check
+NeoBundle 'vim-scripts/vim-auto-save'           "自動セーブ
+NeoBundle "jceb/vim-hier"                       "quickfix時のシンタックスハイライト
+NeoBundle "dannyob/quickfixstatus"              "現在行に関するquickfixメッセージをステータスバーに表示
 NeoBundle "sgur/unite-qf"
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimproc', {
@@ -119,7 +118,7 @@ NeoBundle 'Shougo/vimproc', {
 
 
 """"""""""""""""""""""""""""""""""""""""
-" Vimビルトインのプラグイン読み込み
+" Vimビルトインの追加機能読み込み
 """"""""""""""""""""""""""""""""""""""""
 " Match Complex Parentheses
 source $VIMRUNTIME/macros/matchit.vim
@@ -191,7 +190,7 @@ nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 nnoremap <silent> ,uh :<C-u>Unite help<CR>
 "```
 
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## 補完 - Neocomplete
 "[Shougo/neocomplete.vim](https://github.com/Shougo/neocomplete.vim)
 "`````````````````````````````````````````````````````````````
@@ -217,7 +216,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "`````````````````````````````````````````````````````````````
 
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## スニペット - Neosnippet
 "`````````````````````````````````````````````````````````````
 " Plugin key-mappings.
@@ -239,26 +238,17 @@ if has('conceal')
 endif
 "`````````````````````````````````````````````````````````````
 
-""""""""""""""""""""""""""""""""""""""""
-"NERDTree設定
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"## [NERDTree](https://github.com/scrooloose/nerdtree)
+"IDEっぽいファイル表示
+"`````````````````````````````````````````````````````````````
 map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""
 " clever-f
 """"""""""""""""""""""""""""""""""""""""
 let g:clever_f_smart_case = 1
-""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""
-" Octoeditor
-""""""""""""""""""""""""""""""""""""""""
-map ,on  :OctopressNew<CR>
-map ,ol  :OctopressList<CR>
-map ,og  :OctopressGrep<CR>
-nmap ,og  :OctopressGenerate<CR>
-nmap ,od  :OctopressDeploy<CR>
 """"""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""
@@ -431,6 +421,7 @@ let g:quickrun_config = {
 \       "hook/close_quickfix/enable_exit" : 1,
 \   }
 \}
+" Rubocop
 if executable('rubocop')
     let g:quickrun_config["ruby/watchdogs_checker"] = {
     \       "type" : "watchdogs_checker/rubocop"
