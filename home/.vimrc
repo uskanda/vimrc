@@ -32,6 +32,7 @@ set noswapfile                     " スワップファイルを作成しない
 set autoread                       " 他のプログラム等から書き換えられたら自動再読み込み
 set nobk                           " バックアップの作成をしないようにする
 set backspace=indent,eol,start
+filetype plugin indent on          " ファイル形式検出、プラグイン、インデントを ON
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -245,11 +246,12 @@ endif
 map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
 "`````````````````````````````````````````````````````````````
 
-""""""""""""""""""""""""""""""""""""""""
-" clever-f
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"## [clever-f](https://github.com/rhysd/clever-f.vim)
+"fでの検索を強化
+"`````````````````````````````````````````````````````````````
 let g:clever_f_smart_case = 1
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""
 " Evervim
@@ -293,12 +295,6 @@ nnoremap <silent> ,r :<C-u>Unite -buffer-name=register register<CR>
 " " 常用セット
 nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
 
-" ファイル形式検出、プラグイン、インデントを ON
-filetype plugin indent on
-
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
 
 """"""""""""""""""""""""""""""""""""""""
 ":Renameでファイルリネーム
@@ -429,5 +425,14 @@ if executable('rubocop')
 endif
 let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"## ローカル設定用vimrc読み込み
+"端末単位での設定や、パスワードの記載等をvimrc.localに記載する
+"`````````````````````````````````````````````````````````````
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+"`````````````````````````````````````````````````````````````
 
 NeoBundleCheck
