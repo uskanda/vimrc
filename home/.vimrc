@@ -32,7 +32,6 @@ set noswapfile                     " スワップファイルを作成しない
 set autoread                       " 他のプログラム等から書き換えられたら自動再読み込み
 set nobk                           " バックアップの作成をしないようにする
 set backspace=indent,eol,start
-filetype plugin indent on          " ファイル形式検出、プラグイン、インデントを ON
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,4 +434,5 @@ if filereadable(expand('~/.vimrc.local'))
 endif
 "`````````````````````````````````````````````````````````````
 
+filetype plugin indent on          " ファイル形式検出、プラグイン、インデントを ON
 NeoBundleCheck
