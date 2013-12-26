@@ -16,14 +16,14 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## <a name="basics">基本設定
 "`````````````````````````````````````````````````````````````
-set nocompatible                   " vi互換でなく、Vimデフォルト設定にする
-set encoding=utf-8                 " 文字コードをUTF-8に設定する
+set nocompatible                   " vi互換でなく、vimデフォルト設定にする
+set encoding=utf-8                 " 文字コードをutf-8に設定する
 set ambiwidth=double               " 全角文字の扱いを改善
 set number                         " ファイル左に行番号を表示する
 set relativenumber                 " カーソルの位置する行からの差分行数を表示する。set number時の挙動を一部上書きする
-set smarttab                       " 頭の余白内で <Tab> を打ち込むと空白を挿入
+set smarttab                       " 頭の余白内で <tab> を打ち込むと空白を挿入
 set expandtab                      " tab文字をスペースに展開
-set tabstop=4                      " <Tab>を押したときの空白文字数
+set tabstop=4                      " <tab>を押したときの空白文字数
 set shiftwidth=4                   " インデント時の空白数
 set infercase                      " 小文字で打った単語でも大文字で補完できるようにする
 set ignorecase                     " 検索で大文字小文字を区別しない
@@ -35,8 +35,8 @@ set backspace=indent,eol,start
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"## <a name="neobundle">Vimプラグインの管理 - NeoBundle
-" [NeoBundle](https://github.com/Shougo/neobundle.vim)を使ってプラグインの管理をします。
+"## <a name="neobundle">vimプラグインの管理 - neobundle
+" [neobundle](https://github.com/Shougo/neobundle.vim)を使ってプラグインの管理をします。
 " 利用するプラグインを記述しておくと、起動時に自動的にインストールされていない
 " プラグインを検知し、インストールします。
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,12 +117,12 @@ NeoBundle 'Shougo/vimproc', {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-""""""""""""""""""""""""""""""""""""""""
-" Vimビルトインの追加機能読み込み
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Vimビルトインの追加機能読み込み
+"`````````````````````````````````````````````````````````````
 " Match Complex Parentheses
 source $VIMRUNTIME/macros/matchit.vim
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## <a name="autosave">ファイルに変更を加えたら自動的にセーブする - Auto-Save 
@@ -149,7 +149,6 @@ inoremap jj <ESC> " in insert mode, jj means <ESC>.
 "## <a name="unite">Unite.vim
 "[Shougo/unite.vim](https://github.com/Shougo/unite.vim)  
 "使いやすい検索インタフェースを提供してくれます。
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "`````````````````````````````````````````````````````````````
 " 入力モードで開始する
 let g:unite_enable_start_insert=1
@@ -188,7 +187,13 @@ endif
 
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 nnoremap <silent> ,uh :<C-u>Unite help<CR>
-"```
+" ファイル一覧
+nnoremap <silent> ,f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" レジスタ一覧
+nnoremap <silent> ,r :<C-u>Unite -buffer-name=register register<CR>
+" " 常用セット
+nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## 補完 - Neocomplete
@@ -246,15 +251,16 @@ map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"## [clever-f](https://github.com/rhysd/clever-f.vim)
-"fでの検索を強化
+"## <a name="clever-f">fでの検索を強化 - clever-f
+"[clever-f](https://github.com/rhysd/clever-f.vim)
 "`````````````````````````````````````````````````````````````
 let g:clever_f_smart_case = 1
 "`````````````````````````````````````````````````````````````
 
-""""""""""""""""""""""""""""""""""""""""
-" Evervim
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
+" ## Evernote on Vim - Evervim
+" ### キーバインド 
+"`````````````````````````````````````````````````````````````
 nnoremap <silent> ,el :<C-u>EvervimNotebookList<CR>
 nnoremap <silent> ,eT :<C-u>EvervimListTags<CR>
 nnoremap <silent> ,en :<C-u>EvervimCreateNote<CR>
@@ -263,11 +269,12 @@ nnoremap <silent> ,ec :<C-u>EvervimOpenClient<CR>
 nnoremap ,es :<C-u>EvervimSearchByQuery<SPACE>
 nnoremap <silent> ,et :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done -tag:someday<CR>
 nnoremap <silent> ,eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
 
-""""""""""""""""""""""""""""""""""""""""
-" fugitive
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## git支援 - fugitive
+" ###キーバインド
+"`````````````````````````````````````````````````````````````
 nnoremap ,gd :<C-u>Gdiff<Enter>
 nnoremap ,gs :<C-u>Gstatus<Enter>
 nnoremap ,gl :<C-u>Glog<Enter>
@@ -276,32 +283,19 @@ nnoremap ,gc :<C-u>Gcommit<Enter>
 nnoremap ,gC :<C-u>Git commit --amend<Enter>
 nnoremap ,gp :<C-u>Git push origin<Enter>
 nnoremap ,gb :<C-u>Gblame<Enter>
-""""""""""""""""""""""""""""""""""""""""
+"`````````````````````````````````````````````````````````````
 
-""""""""""""""""""""""""""""""""""""""""
-"拡張子設定
-""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## 拡張子ごとの動作設定
+"`````````````````````````````````````````````````````````````
 "autocmd BufNewFile,BufRead *.less set filetype=css
-autocmd BufNewFile,BufRead *.as set filetype=actionscript
-""""""""""""""""""""""""""""""""""""""""
+autocmd BufNewFile,BufRead *.as set filetype=actionscript " .asはactionscriptとみなす
+"`````````````````````````````````````````````````````````````
 
 
-
-" ファイル一覧
-nnoremap <silent> ,f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-" レジスタ一覧
-nnoremap <silent> ,r :<C-u>Unite -buffer-name=register register<CR>
-" " 常用セット
-nnoremap <silent> ,, :<C-u>Unite buffer file_mru<CR>
-
-
-""""""""""""""""""""""""""""""""""""""""
-":Renameでファイルリネーム
-""""""""""""""""""""""""""""""""""""""""
-command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
-""""""""""""""""""""""""""""""""""""""""
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## ウィンドウ分割のルール設定 - automatic.vim
+"`````````````````````````````````````````````````````````````
 let g:automatic_config = [
 \   {
 \       "match" : {
@@ -314,8 +308,12 @@ let g:automatic_config = [
 \       },
 \   },
 \]
+"`````````````````````````````````````````````````````````````
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## ステータスラインを便利に - lightline
+"`````````````````````````````````````````````````````````````
 let g:lightline = {
 \ 'colorscheme': 'wombat',
 \ 'component': {
@@ -388,6 +386,7 @@ nmap <silent> tt :tabnext<CR>
 " tn 次のタブ
 nmap <silent> tp :tabprevious<CR>
 " tp 前のタブ
+"`````````````````````````````````````````````````````````````
 
 
 " vim-anzu
@@ -424,6 +423,12 @@ if executable('rubocop')
 endif
 let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+":Renameでファイルリネーム
+"`````````````````````````````````````````````````````````````
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
+"`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## ローカル設定用vimrc読み込み
