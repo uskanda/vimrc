@@ -222,6 +222,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## スニペット - Neosnippet
+"[Shougo/neosnippet.vim](https://github.com/Shougo/neosnippet.vim)
 "`````````````````````````````````````````````````````````````
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -243,7 +244,8 @@ endif
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"## [NERDTree](https://github.com/scrooloose/nerdtree)
+"## <a name="nerdtree">ファイルツリーを表示 - NERDTree
+"### [NERDTree](https://github.com/scrooloose/nerdtree)
 "IDEっぽいファイル表示
 "`````````````````````````````````````````````````````````````
 map ,d :execute 'NERDTreeToggle ' . getcwd()<CR>
@@ -293,7 +295,7 @@ autocmd BufNewFile,BufRead *.as set filetype=actionscript " .asはactionscript�
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ## ウィンドウ分割のルール設定 - automatic.vim
+"## ウィンドウ分割のルール設定 - automatic.vim
 "`````````````````````````````````````````````````````````````
 let g:automatic_config = [
 \   {
@@ -311,7 +313,7 @@ let g:automatic_config = [
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ## ステータスラインを便利に - lightline
+"## ステータスラインを便利に - lightline
 "`````````````````````````````````````````````````````````````
 let g:lightline = {
 \ 'colorscheme': 'wombat',
