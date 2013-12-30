@@ -118,7 +118,7 @@ NeoBundle 'Shougo/vimproc', {
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ## Vimビルトインの追加機能読み込み
+" ## <a name="builtin">Vimビルトインの追加機能読み込み
 "`````````````````````````````````````````````````````````````
 " Match Complex Parentheses
 source $VIMRUNTIME/macros/matchit.vim
