@@ -259,8 +259,8 @@ let g:clever_f_smart_case = 1
 "`````````````````````````````````````````````````````````````
 
 "`````````````````````````````````````````````````````````````
-" ## Evernote on Vim - Evervim
-" ### キーバインド 
+"## <a name="evervim">Evernote on Vim - Evervim
+"### キーバインド 
 "`````````````````````````````````````````````````````````````
 nnoremap <silent> ,el :<C-u>EvervimNotebookList<CR>
 nnoremap <silent> ,eT :<C-u>EvervimListTags<CR>
@@ -273,8 +273,8 @@ nnoremap <silent> ,eta :<C-u>EvervimSearchByQuery<SPACE>tag:todo -tag:done<CR>
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ## git支援 - fugitive
-" ###キーバインド
+"## <a name="fugitive">git支援 - fugitive
+"### キーバインド
 "`````````````````````````````````````````````````````````````
 nnoremap ,gd :<C-u>Gdiff<Enter>
 nnoremap ,gs :<C-u>Gstatus<Enter>
@@ -287,7 +287,7 @@ nnoremap ,gb :<C-u>Gblame<Enter>
 "`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ## 拡張子ごとの動作設定
+" ## <a name="filetypes">拡張子ごとの動作設定
 "`````````````````````````````````````````````````````````````
 "autocmd BufNewFile,BufRead *.less set filetype=css
 autocmd BufNewFile,BufRead *.as set filetype=actionscript " .asはactionscriptとみなす
@@ -313,7 +313,7 @@ let g:automatic_config = [
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"## ステータスラインを便利に - lightline
+"## <a name="lightline">ステータスラインを便利に - lightline
 "`````````````````````````````````````````````````````````````
 let g:lightline = {
 \ 'colorscheme': 'wombat',
