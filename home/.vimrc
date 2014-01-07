@@ -403,8 +403,12 @@ nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 " statusline
 set statusline=%{anzu#search_status()}
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" true/false等を簡単に切り替える - switch
+"`````````````````````````````````````````````````````````````
 NeoBundle "AndrewRadev/switch.vim"
 nnoremap - :Switch<cr>
+"`````````````````````````````````````````````````````````````
 
 " gitgutter
 " CUIだとノーマルモードでタイプしたキーのゴミが稀に残るので対策
