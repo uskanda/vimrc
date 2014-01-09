@@ -404,19 +404,24 @@ nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 set statusline=%{anzu#search_status()}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" true/false等を簡単に切り替える - switch
+" ## true/false等を簡単に切り替える - switch
 "`````````````````````````````````````````````````````````````
 NeoBundle "AndrewRadev/switch.vim"
 nnoremap - :Switch<cr>
 "`````````````````````````````````````````````````````````````
 
-" gitgutter
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## gitgutter
 " CUIだとノーマルモードでタイプしたキーのゴミが稀に残るので対策
+"`````````````````````````````````````````````````````````````
 if !has("gui_running")
     let g:gitgutter_realtime = 0
 endif
+"`````````````````````````````````````````````````````````````
 
-" watchdogs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## watchdogs
+"`````````````````````````````````````````````````````````````
 let g:quickrun_config = {
 \   "watchdogs_checker/_" : {
 \       "hook/close_quickfix/enable_exit" : 1,
@@ -430,6 +435,7 @@ if executable('rubocop')
 endif
 let g:watchdogs_check_BufWritePost_enable = 1
 call watchdogs#setup(g:quickrun_config)
+"`````````````````````````````````````````````````````````````
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ":Renameでファイルリネーム
