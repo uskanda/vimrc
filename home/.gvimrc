@@ -1,6 +1,7 @@
 colorscheme wombat
 set background=dark
 set transparency=1
+set cursorcolumn
 
 set guioptions-=e
 
