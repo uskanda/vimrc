@@ -101,6 +101,7 @@ NeoBundle 'osyo-manga/vim-automatic'            "Window分割支援
 NeoBundle 'rhysd/clever-f.vim'                  "fコマンドを強化
 NeoBundle 'rhysd/conflict-marker.vim'           "VCSのコンフリクト支援
 NeoBundle 'osyo-manga/vim-anzu'                 "検索時にヒット数を表示
+NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'hail2u/vim-css3-syntax'              "css3
 NeoBundle "osyo-manga/shabadou.vim"
@@ -445,6 +446,14 @@ call watchdogs#setup(g:quickrun_config)
 command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
 "`````````````````````````````````````````````````````````````
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" indentLine
+"`````````````````````````````````````````````````````````````
+let g:indentLine_color_term = 111
+let g:indentLine_color_gui = '#708090'
+let g:indentLine_char = '¦'
+"`````````````````````````````````````````````````````````````
+    
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "## ローカル設定用vimrc読み込み
 "端末単位での設定や、パスワードの記載等をvimrc.localに記載する
