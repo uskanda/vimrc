@@ -84,6 +84,7 @@ if s:meet_neocomplete_requirements()
     NeoBundle 'Shougo/neocomplete.vim'
 endif
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'surround.vim'
 NeoBundle 'tomtom/tcomment_vim'                 "gcでコメントのトグル
 NeoBundle 'Highlight-UnMatched-Brackets'        "不一致の括弧を強調表示
